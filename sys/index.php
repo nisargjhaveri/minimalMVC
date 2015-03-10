@@ -7,7 +7,10 @@ require('app/config.php');
  * Set unset configs
  */
 if (empty($_base_url)) {
-    $_base_url = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']).'/';
+    $_REQUEST_SCHEME = (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off') ? 'https' : 'http';
+    $_PATH = dirname($_SERVER['SCRIPT_NAME']);
+    if (substr($_PATH, -1) != '/') $_PATH .= '/';
+    $_base_url = $_REQUEST_SCHEME.'://'.$_SERVER['HTTP_HOST'].$_PATH;
 }
 
 /*
