@@ -2,7 +2,7 @@
 
 class View {
 
-    private $data = null;
+    public $data = null;
 
     function __construct($view_name_noconflict, $data = array()) {
         $this->data = $data;
