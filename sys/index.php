@@ -50,7 +50,21 @@ $args = $router->get_args();
 /**
  * Load requested controller
  */
-include(APPPATH . 'controllers/'.$controller.'.php');
-$a=new $controller;
+$not_found = true;
 
-call_user_func_array( array( $a, $method ), $args );
+$controller_file = APPPATH . 'controllers/'.$controller.'.php';
+if (file_exists($controller_file) && is_readable($controller_file)) {
+    include($controller_file);
+    $a=new $controller;
+
+    if (method_exists($a, $method)) {
+        $not_found = false;
+        call_user_func_array( array( $a, $method ), $args );
+    }
+}
+
+if ($not_found) {
+    header('HTTP/1.0 404 Not Found');
+    new View('404');
+    exit();
+}
