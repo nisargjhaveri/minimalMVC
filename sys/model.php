@@ -14,7 +14,9 @@ class Model {
      * Connect to mysql DB, using mysqli
      */
     private function _load_db() {
-        $this->DB = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        global $cfg;
+
+        $this->DB = new mysqli($cfg['db_host'], $cfg['db_user'], $cfg['db_pass'], $cfg['db_name']);
         if ($this->DB->connect_errno) {
             //echo "Failed to connect to MySQL: " . $this->DB->connect_errno;
             $this->DB = false;

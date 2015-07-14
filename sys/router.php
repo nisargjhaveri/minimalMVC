@@ -23,7 +23,10 @@ class Router {
      * Loads routes from `app/routes.php`
      */
     private function _load_routes() {
-        include(APPPATH . 'routes.php');
+        $routes_file = APPPATH . 'routes.php';
+        if (is_file($routes_file)) {
+            include($routes_file);
+        }
         return empty($routes) ? array() : $routes;
     }
 
@@ -31,12 +34,12 @@ class Router {
      * Extracts path and sets `$controller`, `$method` and `$args`
      */
     private function _extract_path($path) {
-        global $default_controller, $default_method;
+        global $cfg;
 
         $pathInfo = empty($path)? array() : explode('/', $path);
 
-        $this->controller = empty($pathInfo[1]) ? $default_controller : $pathInfo[1];
-        $this->method = empty($pathInfo[2]) ? $default_method : $pathInfo[2];
+        $this->controller = empty($pathInfo[1]) ? $cfg['default_controller'] : $pathInfo[1];
+        $this->method = empty($pathInfo[2]) ? $cfg['default_method'] : $pathInfo[2];
         $this->args = array_filter(array_slice($pathInfo, 3));
     }
 

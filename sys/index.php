@@ -9,16 +9,45 @@ define('SYSPATH', realpath(dirname(__FILE__) . '/') . '/');
 /*
  * Require app config
  */
-require(APPPATH . 'config.php');
+$app_cfg_file = APPPATH . 'config.php';
+if (is_file($app_cfg_file)) {
+    include(APPPATH . 'config.php');
+}
 
 /*
  * Set unset configs
  */
-if (empty($_base_url)) {
+if (!isset($cfg) || !is_array($cfg)) {
+    $cfg = array();
+}
+$default_cfg = array(
+    'default_controller'    => 'hello',
+    'default_method'        => 'index',
+
+    'base_url'              => '',
+
+    'db_host'               => '',
+    'db_user'               => '',
+    'db_pass'               => '',
+    'db_name'               => '',
+);
+foreach ($default_cfg as $key => $value) {
+    if (empty($cfg[$key])) {
+        $cfg[$key]  = $value;
+    }
+}
+
+/*
+ * Set $_base_url
+ */
+if (empty($cfg['base_url'])) {
     $_REQUEST_SCHEME = (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off') ? 'https' : 'http';
     $_PATH = dirname($_SERVER['SCRIPT_NAME']);
     if (substr($_PATH, -1) != '/') $_PATH .= '/';
     $_base_url = $_REQUEST_SCHEME.'://'.$_SERVER['HTTP_HOST'].$_PATH;
+}
+else {
+    $_base_url = $cfg['base_url'];
 }
 
 /*

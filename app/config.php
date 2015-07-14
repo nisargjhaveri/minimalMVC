@@ -1,10 +1,13 @@
 <?php
-$default_controller = 'hello';
-$default_method = 'index';
 
-$_base_url = '';
+$cfg = array(
+    'default_controller'    => 'hello',
+    'default_method'        => 'index',
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'user');
-define('DB_PASS', 'password');
-define('DB_NAME', 'dbname');
+    'base_url'              => '',
+
+    'db_host'               => 'localhost',
+    'db_user'               => 'user',
+    'db_pass'               => 'password',
+    'db_name'               => 'dbname',
+);
