@@ -8,12 +8,39 @@ A really minimal MVC framework with helpers and library support.
 How to use?
 -----------
 
-- Check example in `app/` directory.
+- Check example at [minimalMVC-example](https://github.com/nisargjhaveri/minimalMVC-example).
 - Run phpDoc and understand available methods. (I have tried to make documentation phpDoc compatible, not sure with what level of success :P)
-- Alternatively, browse the `sys/` directory and understand code (If you are a real coder :P)
+- Alternatively, browse and understand the code (If you think reading code is easier :P)
 - Add more controllers, models, views, libraries and helpers in app and make something awesome. :)
 
 **Note: Sorry for the not so good documentation, but if you are *real coder* you can get everything from the code. It is nicely written. :P**
+
+Directory structure
+-------------------
+
+The directory structure of an application using minimalMVC looks like following.
+```
+.
+|-- index.php (which calls sys/index.php)
+|-- sys
+|   `-- (Content of this repo)
+|-- app
+|   |-- config.php
+|   |-- routes.php
+|   |-- models
+|   |   `-- (Models...)
+|   |-- controllers
+|   |   `-- (Controllers...)
+|   |-- views
+|   |   `-- (Views...)
+|   |-- helpers
+|   |   `-- (Helpers...)
+|   `-- libraries
+|       `-- (Libraries...)
+`-- (Other stuff including static files, css, js, etc.)
+```
+
+Please refer to the [minimalMVC-example](https://github.com/nisargjhaveri/minimalMVC-example) repo for details for `app` directory.
 
 History
 --------
