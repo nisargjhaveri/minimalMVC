@@ -1,9 +1,17 @@
 <?php
 error_reporting(E_ALL);
 
-require('app/config.php');
+if (!defined('APPPATH')) {
+    define('APPPATH', realpath(dirname(__FILE__) . '/../app' ). '/');
+}
+define('SYSPATH', realpath(dirname(__FILE__) . '/') . '/');
 
-/**
+/*
+ * Require app config
+ */
+require(APPPATH . 'config.php');
+
+/*
  * Set unset configs
  */
 if (empty($_base_url)) {
@@ -47,7 +55,7 @@ $controller = $router->get_controller();
 $method = $router->get_method();
 $args = $router->get_args();
 
-/**
+/*
  * Load requested controller
  */
 $not_found = true;
