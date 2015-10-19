@@ -12,7 +12,12 @@ class Controller {
      * @param array $data (optional) Data as an associative array
      */
     function load_view($name, $data = array()) {
+        $view_file = APPPATH . "views/$name.php";
+        if (!is_file($view_file)) {
+            return false;
+        }
         new View($name, $data);
+        return true;
     }
 
     /**
