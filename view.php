@@ -5,9 +5,13 @@ class View {
     public $data = null;
 
     function __construct($view_name_noconflict, $data_noconflict = array()) {
+        $view_file_path = APPPATH . "views/$view_name_noconflict.php";
+        if (!is_file($view_file_path)) {
+            throw new Exception('View not found');
+        }
         $this->data = $data_noconflict;
         extract($this->data);
-        include(APPPATH . "views/$view_name_noconflict.php");
+        include($view_file_path);
     }
 
     /**

@@ -101,7 +101,7 @@ if (file_exists($controller_file) && is_readable($controller_file)) {
 }
 
 if ($not_found) {
-    header('HTTP/1.0 404 Not Found');
+    http_response_code(404);
     new View('404');
     exit();
 }

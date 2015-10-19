@@ -13,7 +13,12 @@ class Library {
      * @param array $data (optional) Data as an associative array
      */
     protected function load_view($name, $data = array()) {
-        new View($name, $data);
+        try {
+            new View($name, $data);
+        } catch (Exeption $e) {
+            return false;
+        }
+        return true;
     }
 
     /**
