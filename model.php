@@ -34,4 +34,19 @@ class Model {
         return $this->$var;
     }
 
+    /**
+     * Load model
+     *
+     * Copy of load_model in controller.php
+     *
+     * @param string $name Name of the model
+     * @param string $load_as (optional) Load model as this name
+     */
+    protected function load_model($name, $load_as = false) {
+        if ($load_as == false)
+            $load_as = $name;
+        include_once(APPPATH . 'models/'.$name.'.php');
+        $this->$load_as = new $name;
+    }
+
 }
