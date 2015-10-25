@@ -47,7 +47,7 @@ History
 
 I have some problems with big frameworks that does everything for me without me knowing what they are doing... Also, I have problems with using others libraries rather than writing myself (But sadly, I cannot write everything myself :/).
 
-But this time they allowed me to create and use a framework for the website of our college fest ([Felicity 2k15, IIIT Hyderabad](http://felicity.iiit.ac.in/)). Thanks to my friends @polybuildr and @hharchani who allowed me to create a framework and use it rather than using *someone else's* framework. :D
+But this time they allowed me to create and use a framework for the website of our college fest ([Felicity 2k15, IIIT Hyderabad](http://felicity.iiit.ac.in/)). Thanks to my friends [@polybuildr](https://github.com/polybuildr) and [@hharchani](https://github.com/hharchani) who allowed me to create a framework and use it rather than using *someone else's* framework. :D
 
 This was created as part of the website mentioned above, and then I separated it as a different project. Old commits history is not preserved as some of them was specific to that project.
 
