@@ -72,6 +72,7 @@ load_helper('base_url');
  * Load system
  */
 require(SYSPATH . 'router.php');
+require(SYSPATH . 'loader.php');
 require(SYSPATH . 'controller.php');
 require(SYSPATH . 'model.php');
 require(SYSPATH . 'library.php');
@@ -102,6 +103,6 @@ if (file_exists($controller_file) && is_readable($controller_file)) {
 
 if ($not_found) {
     http_response_code(404);
-    new View('404');
+    Loader::view(404);
     exit();
 }
