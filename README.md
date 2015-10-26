@@ -5,6 +5,12 @@ Another MVC framework in PHP.
 
 A really minimal MVC framework with helpers and library support.
 
+See also
+--------
+
+- [minimalMVC-example](https://github.com/nisargjhaveri/minimalMVC-example), for example on how to use minimalMVC
+- [minimalMVC-extras](https://github.com/nisargjhaveri/minimalMVC-extras), for extra libraries and helpers that works with minimalMVC
+
 How to use?
 -----------
 
