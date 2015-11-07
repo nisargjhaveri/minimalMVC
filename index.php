@@ -26,10 +26,14 @@ $default_cfg = array(
 
     'base_url'              => '',
 
-    'db_host'               => '',
-    'db_user'               => '',
-    'db_pass'               => '',
-    'db_name'               => '',
+    'databases'             => [
+        // 'name' => [
+        //     'db_host'   => '',
+        //     'db_user'   => '',
+        //     'db_pass'   => '',
+        //     'db_name'   => '',
+        // ]
+    ],
 );
 foreach ($default_cfg as $key => $value) {
     if (empty($cfg[$key])) {
