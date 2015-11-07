@@ -11,10 +11,17 @@ class Model {
      * Contains instance of Loader class
      * @var Loader
      */
-    private $loader;
+    private $_l = false;
 
-    function __construct() {
-        $this->loader = new Loader($this);
+    /**
+     * private getter for loader
+     * @return Loader
+     */
+    private function _loader() {
+        if (!$this->_l) {
+            $this->_l = new Loader($this);
+        }
+        return $this->_l;
     }
 
     /**
@@ -47,7 +54,7 @@ class Model {
      * @param string $load_as (optional) Load model as this name
      */
     protected function load_model($name, $load_as = false) {
-        return $this->loader->model($name, $data);
+        return $this->_loader()->model($name, $load_as);
     }
 
 }
