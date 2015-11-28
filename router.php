@@ -47,6 +47,10 @@ class Router {
         if (empty($request_path)) {
             $request_path = '/';
         }
+
+        // Clean up request path
+        $request_path = str_replace('\\', '/', $request_path);
+
         $routes = $this->_load_routes();
         $path = '';
 
