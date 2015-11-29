@@ -44,4 +44,13 @@ class Model {
         return $this->_loader()->model($name, $load_as);
     }
 
+    /**
+     * Load library
+     * @param string $name Name of the library
+     * @param string $load_as (optional) Load library as this name
+     */
+    protected function load_library($name, $load_as = false) {
+        return $this->_loader()->library($name, $load_as);
+    }
+
 }
