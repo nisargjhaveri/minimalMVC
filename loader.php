@@ -20,7 +20,7 @@ class Loader {
     public static function view($name, $data = array()) {
         try {
             new View($name, $data);
-        } catch (Exeption $e) {
+        } catch (Exception $e) {
             return false;
         }
         return true;
