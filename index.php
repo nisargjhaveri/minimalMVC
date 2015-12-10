@@ -34,6 +34,11 @@ $default_cfg = array(
         //     'db_name'   => '',
         // ]
     ],
+
+    '404_view' => '404',
+    '404_data' => [
+        // data to pass to a generic error view in case of a 404
+    ],
 );
 foreach ($default_cfg as $key => $value) {
     if (empty($cfg[$key])) {
@@ -107,6 +112,6 @@ if (file_exists($controller_file) && is_readable($controller_file)) {
 
 if ($not_found) {
     http_response_code(404);
-    Loader::view(404);
+    Loader::view($cfg['404_view'], $cfg['404_data']);
     exit();
 }
