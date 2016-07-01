@@ -99,7 +99,7 @@ if (file_exists($controller_file) && is_readable($controller_file)) {
     include($controller_file);
     $a=new $controller;
 
-    if (method_exists($a, $method)) {
+    if (method_exists($a, $method) && is_callable( array($a, $method) )) {
         $not_found = false;
         call_user_func_array( array( $a, $method ), $args );
     }
